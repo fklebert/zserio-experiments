@@ -3,7 +3,8 @@
 #include <packedarray/ContainerUnpacked.h>
 #include <packedarray/ContainerPacked.h>
 #include <packedarray/ContainerNativePacked.h>
-
+#include <zserio/FileUtil.h>
+#include <zserio/SerializeUtil.h>
 
 #include "RolledArray.h"
 
@@ -62,6 +63,13 @@ int main()
     std::cout << "size: " << containerPacked2.bitSizeOf() << std::endl;
     std::cout << "bits per element: " << (containerPacked2.bitSizeOf() / ARRAY_SIZE_2) << std::endl;
     std::cout <<  std::endl;
+
+    // write the containers to disk
+    zserio::serializeToFile(containerUnpacked, "unpacked.bin");
+    zserio::serializeToFile(containerPacked, "packed.bin");
+    zserio::serializeToFile(containerNativePacked, "nativepacked.bin");
+    zserio::serializeToFile(containerPacked2, "packed2.bin");
+
 
     return 0;
 }

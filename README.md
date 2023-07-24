@@ -1,2 +1,7 @@
 # zserio-experiments
-Experiments with zserio
+
+
+## Packed Array Experiment
+
+Shows how data content influences the packing ability of arrays.
+
